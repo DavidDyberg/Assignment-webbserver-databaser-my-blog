@@ -20,8 +20,11 @@ export default function CreatePost() {
       title:titleInput,
       body:editorContent,
         slug,
-        user_id: user.id
+        user_id: user.id,
+        image,
       }
+
+      
 
     const { error, status} = await createTrigger(newPost)
 

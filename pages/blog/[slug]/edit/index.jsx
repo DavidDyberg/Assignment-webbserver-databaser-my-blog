@@ -23,14 +23,14 @@ export default function EditBlogPost() {
   const handleOnSubmit = async ({ editorContent, titleInput, image }) => {
   const slug = createSlug(titleInput)
   
-  
+  const updatedPost = { title:titleInput,
+    body:editorContent,
+      slug,
+      id: data.id,
+    image,
+   }
 
-    const { error, status} = await editTrigger({ 
-      title:titleInput,
-       body:editorContent,
-         slug,
-         id: data.id 
-        })
+    const { error, status} = await editTrigger(updatedPost)
                
     console.log({ editorContent, titleInput, image, slug });
     
