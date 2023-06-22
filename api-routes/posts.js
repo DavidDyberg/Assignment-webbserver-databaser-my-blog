@@ -66,7 +66,6 @@ export const editPost = async (_, {arg: updatedPost}) => {
 
   }
   
-
   const {data, error, status} = await supabase
   .from('posts')
   .update({...updatedPost, image})

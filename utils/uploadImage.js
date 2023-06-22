@@ -1,6 +1,5 @@
 import { supabase } from "../lib/supabaseClient";
 
-
 export const uploadImage = async (file) => {
     const fullFileName = file.name.split('.');
     const fileName = fullFileName[0];
@@ -8,7 +7,6 @@ export const uploadImage = async (file) => {
 
     const filePath = `${fileName}-${Math.random()}.${fileExt}`;
 
-    
 const { data, error } = await supabase.storage
   .from('images')
   .upload(filePath, file, {

@@ -30,6 +30,8 @@ export default function EditBlogPost() {
     image,
    }
 
+   console.log({updatedPost})
+
     const { error, status} = await editTrigger(updatedPost)
                
     console.log({ editorContent, titleInput, image, slug });
