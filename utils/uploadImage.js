@@ -18,7 +18,6 @@ const { data, error } = await supabase.storage
     return { error }
   }
 
-  
 const { data: {publicUrl}, error: publicUrlError, } = await supabase.storage
 .from('images')
 .getPublicUrl(data.path)

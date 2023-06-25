@@ -15,13 +15,12 @@ const postsCacheKey = "/post"
 export default function BlogPost() {
   const router = useRouter();
   
-  /* Use this slug to fetch the post from the database */
   const { slug } = router.query;
+
   const {data: {data = []} = {}, error }= useSWR(slug ? `${postsCacheKey}${slug}`: null, () =>
    getPost({slug}));
 
   const { trigger: removeTrigger } = useSWRMutation(postsCacheKey, removePost);
-
 
   const handleDeletePost = async () => {
      const {error, status} = await removeTrigger(data.id)

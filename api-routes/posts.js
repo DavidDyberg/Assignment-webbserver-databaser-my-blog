@@ -8,7 +8,6 @@ export const getPosts = async () => {
    return { data, error, status };
 };
 
-
 export const getPost = async ({slug}) => {
   const { data, error, status } = await supabase
   .from("posts")
@@ -20,7 +19,6 @@ export const getPost = async ({slug}) => {
 }
 
 export const addPost = async (_,{arg: newPost}) => {
-  //Handle add post here
   let image = ''
 
   if (newPost?.image) {
@@ -51,7 +49,6 @@ export const removePost = async (_, { arg: id }) => {
 };
 
 export const editPost = async (_, {arg: updatedPost}) => {
-  //Handle edit post here
   let image = updatedPost?.image??'';
 
   const isNewImage = typeof image === 'object' && image !== null;
@@ -59,7 +56,6 @@ export const editPost = async (_, {arg: updatedPost}) => {
   if(isNewImage) {
     const {publicUrl, error} = await uploadImage(updatedPost?.image);
    
-
    if(!error) {
     image = publicUrl
    }

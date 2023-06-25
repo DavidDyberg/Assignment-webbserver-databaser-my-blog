@@ -24,16 +24,10 @@ export default function CreatePost() {
         image,
       }
 
-      
-
     const { error, status} = await createTrigger(newPost)
 
     router.push(`/blog/${slug}`)
   };
-
- // if (isLoading) {
- //   return 'loading....';
- // }
 
   return (
     <BlogEditor

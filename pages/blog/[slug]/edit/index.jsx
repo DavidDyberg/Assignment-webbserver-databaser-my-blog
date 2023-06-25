@@ -12,7 +12,7 @@ const editPostsCacheKey = "/editpost"
 
 export default function EditBlogPost() {
   const router = useRouter();
-  /* Use this slug to fetch the post from the database */
+
   const { slug } = router.query;
 
   const {data: {data = {}} = {}, error, isLoading }= useSWR(slug ? `${editPostsCacheKey}${slug}`: null, () =>
@@ -29,8 +29,6 @@ export default function EditBlogPost() {
       id: data.id,
     image,
    }
-
-   console.log({updatedPost})
 
     const { error, status} = await editTrigger(updatedPost)
                

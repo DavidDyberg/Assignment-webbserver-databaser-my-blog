@@ -1,9 +1,6 @@
 import { supabase } from "../lib/supabaseClient";
 
-
-
 export const getComments = async (postId) => {
-  //Handle get all comments
   const { data, error, status } = await supabase
   .from('comments')
   .select()
@@ -12,7 +9,6 @@ export const getComments = async (postId) => {
 };
 
 export const addComment = async (_,{arg: newComment}) => {
-  //Handle add comment here
   const { data, error, status } = await supabase
   .from('comments')
   .insert(newComment)
@@ -23,7 +19,6 @@ export const addComment = async (_,{arg: newComment}) => {
 };
 
 export const removeComment = async (_, { arg: post_id }) => {
-  //Handle remove comment here
   const {data, error, status} = await supabase
   .from('comments')
   .delete()
